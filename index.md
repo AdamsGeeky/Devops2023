@@ -33,3 +33,19 @@ Deploying and managing applications in production environments
 Troubleshooting and debugging issues in production
 Monitoring and optimizing system performance
 Overall, the specific skills and responsibilities of a DevOps engineer will depend on the needs of the organization and the specific projects they are working on.
+
+# A scripting language is a programming language that is used to write scripts, which are programs that are typically interpreted rather than compiled. Scripting languages are typically easier to learn and use than full-fledged programming languages, and are often used for automating tasks, extending the functionality of other systems, or creating simple programs.
+
+Some common scripting languages include:
+
+# Bash: Bash is a Unix shell and command-line interface. It is commonly used to write scripts for automating tasks on Linux and other Unix-like operating systems.
+
+Python: Python is a high-level, general-purpose programming language that is widely used for web development, scientific computing, and data analysis. It is also often used as a scripting language.
+
+Ruby: Ruby is a programming language that is commonly used for web development and scripting. It is known for its simplicity and flexibility.
+
+JavaScript: JavaScript is a programming language that is commonly used for web development and client-side scripting. It is supported by all modern web browsers.
+
+# Perl: Perl is a programming language that is often used for text manipulation and system administration tasks. It is known for its powerful regular expression support.
+
+There are many other scripting languages in use, and the appropriate language to use will depend on the specific needs and goals of the project.
