@@ -1,56 +1,18 @@
-shows how a user (Alice) sends some funds to another user (Bob): Alice uses her private key to sign a message saying “I want to send 1 bitcoin
-to 1gr6U6...” that she sends to the network. Note that Alice does not identify the user she wants to send funds to, just the address to receive the funds. Thus Alice must find out Bob’s address through other means. Upon receiving Alice’s message, nodes in the network follow these steps:
+# the BookingApp 
+the BookingApp is program for booking tickets to an event. The main function of the program is to get input from the user, such as their name and email address, and the number of tickets they want to purchase. It then calls various functions to validate the user's input, book the tickets, and send a confirmation email to the user.
 
-- They verify that the signature is correct. If it is not they reject the message.
+Some of the key concepts and elements in this code include:
 
-- They check that the sending address has enough funds to honor the transaction. If there are not enough funds credited to the address, the transaction is considered invalid.
+**package main**: This line indicates that this code is part of the main package, which is the default package for an executable program in Go.
 
-- Finally, they update the database, subtracting the funds from one address and crediting them to the other.
+**import:** The import keyword is used to include packages from other parts of the Go standard library or from external libraries.
 
-An important detail is that nodes in the network do not know the identities of either Alice or Bob, as users are identified only by their addresses
+**const and var**: const is used to declare a constant value, while var is used to declare a variable.
 
-by a pseudonym: Bitcoin provides **pseudonymity**. Another important detail is that addresses are not granted by the network. They are created inside the users’ devices when it runs the Bitcoin software that generates the **cryptographic public and private keys**. As the public and private keys are intimately related
+**struct**: A struct is a data type that allows you to define a composite data type by grouping together related values. In this code, the UserData struct is used to store information about a user who has booked tickets.
 
-# funny part About Bitcoin
+**sync.WaitGroup**: A WaitGroup is a type provided by the sync package in the Go standard library that allows you to wait for a group of goroutines to finish.
 
-No prior registration is necessary to use Bitcoin. In fact, new users do not even have to communicate their addresses to the network to be able to receive funds. A user, say Bob, can generate an address and communicate this address to Alice through other means, such as an email or the pairing of two smartphones. Alice can now send funds to Bob’s address and the network would accept the transaction even though it has never encountered that address before.
+**go:** The go keyword is used to launch a function as a goroutine, which is a lightweight concurrent process. In this code, the sendTicket function is launched as a goroutine.
 
-# consensus
-is secured applying large amounts of computational power. This computational power serves the purpose of providing protection against attacks and is rewarded with the issuance of new bitcoins. The protocol encodes a schedule of new bitcoin creation, and all the newly created bitcoins are distributed among those who secure the blockchain,
-called miners. 
-
-Miners compete to create blocks of transactions that are appended to the blockchain. A miner who creates one of these blocks is granted the block reward, consisting of a certain number of newly minted bitcoins. 
-
-A native currency is essential to the design of Bitcoin, as the issuance of new currency is used to pay for the cost of securing the distributed ledger
-
-# Bitcoin’s distributed database is called the blockchain. 
-Transactions are grouped in blocks of transactions roughly every 10 minutes. These blocks of transactions are then recorded one after the other in a chain of blocks, hence the name blockchain. 
-
-This may seem a strange way to record information, compared to, say, a regular relational database.
-
-The blockchain was designed to be resilient in the presence of attackers in the network.
-
-Blocks are linked to create a record of the history of transactions that cannot be altered.
-
-The link between blocks is a cryptographic link that cannot be forged unless the attacker has vast computational resources at her disposa
-
-# Aside from the blockchain, nodes keep an additional database called the Unspent Transaction Outputs cache (UTXO)
-
-The **UTXO** is a ledger that records the funds available for every address, in essence working as a cache for the blockchain.
-As new transactions come, the UTXO is updated: funds from the sending addresses are subtracted and added to the receiving addresses. The UTXO is more similar to the central databases at the heart of most centralized systems.
-
-# Bitcoin as a distributed ledger
-
-# bitcoin
-principle Bitcoin could serve as money as it satisfies the technical properties of
-money: 
-- it is durable, 
-- divisible,
-- fungible, 
-- easy to transport, 
-- and impossible to counterfeit.
-
-# Modern mainstream economists (Mankiw, 2003) usually assign money three functions:
-- **Medium of exchange**. Money can be exchanged for goods and services.
-- **Store of value**. Money can be used to transfer purchasing power from the present to the future.
-- **Unit of account**. Goods and services are quoted in terms of the money unit
+**fmt.Println** and **fmt.Printf**: These functions are part of the fmt package in the Go standard library and are used to print output to the terminal. Println prints a line of output, while Printf allows you to specify a formatting string to control the layout of the output.
