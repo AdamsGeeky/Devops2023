@@ -1,6 +1,6 @@
 # Devops2023
 # why DevOps ?
-
+<a href="https://media.giphy.com/media/kgUkCLMu3xhw1T6txv/giphy-downsized-large.gif"></a>
 Before you start though, 
 
 is DevOps the right choice for you? See our guide: Is it Worth it to Become a DevOps Engineer?
