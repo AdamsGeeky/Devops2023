@@ -1,5 +1,13 @@
 # Notes on Nodejs
 
+Node.js uses a single-threaded event loop architecture, which means that it has only one main thread of execution. However, Node.js also provides support for creating child processes, which can run in their own threads and communicate with the main thread through inter-process communication (IPC). Aka (pipe | )
+
+Overall, while Node.js itself is single-threaded, it provides various mechanisms for developers to create and manage threads within their programs, allowing them to take advantage of multi-core processors and improve the performance of their applications.
+
+
+
+
+
 <details>
 <summary>Middleware in Express.js</summary> 
 
