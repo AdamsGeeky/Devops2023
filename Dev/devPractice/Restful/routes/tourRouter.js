@@ -1,5 +1,5 @@
 import express from "express"
-import {delById, toursAll, singleById, addtour } from '../controllers/toursController.mjs'
+import {delById, toursAll, singleById, addtour,checkReq } from '../controllers/toursController.mjs'
 
 
 const router = express.Router()
@@ -7,7 +7,7 @@ const router = express.Router()
 router
 .route('/')
         .get(toursAll)
-        .post(addtour)
+        .post(checkReq, addtour)
 
 router
 .route('/:id')

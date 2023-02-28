@@ -7,6 +7,20 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const toursData = JSON.parse(fs.readFileSync(`${__dirname}/../data/data/tours-simple.json`));
+
+// madelleware
+const checkReq = (req, res, next)=>{
+    if(!req.body.name || !req.body.price){
+        return res.status(400).json({
+            status: "fail",
+            code: 400,
+            msg: "missing name or price"
+        })
+    }
+    next()
+
+}
+
 // GET METHOD
 const toursAll =(req, res) => {
     res.status(200).json({
@@ -78,4 +92,4 @@ const addtour =(req, res) => {
 }
 
 
-export {toursAll, singleById, addtour, delById}
+export {toursAll, singleById, addtour, delById,checkReq}

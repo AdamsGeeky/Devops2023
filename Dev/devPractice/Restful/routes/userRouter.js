@@ -4,7 +4,6 @@ import { userById, userByName, usersByName,
     delUserById } from '../controllers/usersController.mjs'
 
 const router = express.Router()
-
 router
 .route('/')
         .get(getAllUsers)
