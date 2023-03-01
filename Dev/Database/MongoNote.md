@@ -253,3 +253,75 @@ User.countDocuments({ age: { $gte: 25 } }).then((count) => {
 });
 ```
 In addition to the find method, Mongoose provides several other query methods, such as findOne, findById, and findOneAndUpdate, that allow you to retrieve and modify individual documents.
+
+
+# Updating data with Mongoose
+In Mongoose, you can update data in the database using the updateOne, updateMany, or findOneAndUpdate methods on a model. These methods take a search criteria object and an update object as arguments.
+
+Here's an example of how to use the updateOne method to update a single document:
+
+```javascript
+Copy code
+const User = mongoose.model('User', {
+  name: String,
+  age: Number
+});
+
+User.updateOne({ name: 'John Doe' }, { age: 30 }).then(() => {
+  console.log('User updated!');
+});
+```
+In this example, we use the updateOne method to find the first document in the 'users' collection where the name field is 'John Doe' and set its age to 30. The updateOne method returns a Promise that resolves when the update operation is complete.
+
+You can also use the updateMany method to update multiple documents that match the search criteria. Here's an example:
+
+```
+User.updateMany({ age: { $lt: 30 } }, { age: 30 }).then(() => {
+  console.log('Users updated!');
+});
+```
+In this example, we use the updateMany method to find all documents in the 'users' collection where the age field is less than 30 and set their age to 30.
+
+If you want to update a single document and also retrieve the updated document, you can use the findOneAndUpdate method. Here's an example:
+```
+User.findOneAndUpdate({ name: 'John Doe' }, { age: 30 }, { new: true }).then((user) => {
+  console.log(user);
+});
+```
+In this example, we use the findOneAndUpdate method to find the first document in the 'users' collection where the name field is 'John Doe', set its age to 30, and retrieve the updated document. The findOneAndUpdate method returns a Promise that resolves to the updated document.
+
+# Deleting data with Mongoose
+
+In Mongoose, you can delete data from the database using the deleteOne, deleteMany, or findOneAndDelete methods on a model. These methods take a search criteria object as an argument.
+
+Here's an example of how to use the deleteOne method to delete a single document:
+
+```javascript
+const User = mongoose.model('User', {
+  name: String,
+  age: Number
+});
+
+User.deleteOne({ name: 'John Doe' }).then(() => {
+  console.log('User deleted!');
+});
+```
+In this example, we use the deleteOne method to find the first document in the 'users' collection where the name field is 'John Doe' and delete it. The deleteOne method returns a Promise that resolves when the delete operation is complete.
+
+You can also use the deleteMany method to delete multiple documents that match the search criteria. Here's an example:
+
+```javascript
+User.deleteMany({ age: { $lt: 30 } }).then(() => {
+  console.log('Users deleted!');
+});
+```
+In this example, we use the deleteMany method to find all documents in the 'users' collection where the age field is less than 30 and delete them.
+
+If you want to delete a single document and also retrieve the deleted document, you can use the findOneAndDelete method. Here's an example:
+
+```javascript
+User.findOneAndDelete({ name: 'John Doe' }).then((user) => {
+  console.log(user);
+});
+```
+In this example, we use the findOneAndDelete method to find the first document in the 'users' collection where the name field is 'John Doe' and delete it, and also retrieve the deleted document. The findOneAndDelete method returns a Promise that resolves to the deleted document.
